@@ -1,7 +1,7 @@
 package com.pjatk.nbp.repository;
 
-import com.pjatk.nbp.model.Gold;
+import com.pjatk.nbp.model.Query;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface NbpRepository extends JpaRepository<Gold, Long> {
+public interface NbpRepository extends JpaRepository<Query, Long> {
 }
