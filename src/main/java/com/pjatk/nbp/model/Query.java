@@ -3,8 +3,9 @@ package com.pjatk.nbp.model;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Component
@@ -15,18 +16,15 @@ public class Query {
     @Column(name = "id")
     private Long id;
     private CurrencyType currencyType;
-    private LocalDate localDateFrom;
-    private LocalDate localDateTo;
     private Date dateFrom;
     private Date dateTo;
-    private LocalDate dateNow;
+    private Timestamp timeNow;
 
 
     public Query(String currencyType, String localDateFrom, String localDateTo) {
         this.currencyType = CurrencyType.valueOf(currencyType);
-        this.localDateFrom = LocalDate.parse(localDateFrom);
-        this.localDateTo = LocalDate.parse(localDateTo);
-        this.dateNow = LocalDate.now();
+        this.dateFrom = Date.valueOf(localDateFrom);
+        this.dateTo = Date.valueOf(localDateTo);
     }
 
     public Query() {
@@ -48,22 +46,6 @@ public class Query {
         this.currencyType = currencyType;
     }
 
-    public LocalDate getLocalDateFrom() {
-        return localDateFrom;
-    }
-
-    public void setLocalDateFrom(LocalDate dateFrom) {
-        this.localDateFrom = dateFrom;
-    }
-
-    public LocalDate getLocalDateTo() {
-        return localDateTo;
-    }
-
-    public void setLocalDateTo(LocalDate dateTo) {
-        this.localDateTo = dateTo;
-    }
-
     public Date getDateFrom() {
         return dateFrom;
     }
@@ -80,13 +62,22 @@ public class Query {
         this.dateTo = dateTo;
     }
 
+    public Timestamp getDateNow() {
+        return timeNow;
+    }
+
+    public void setDateNow() {
+        this.timeNow = new Timestamp(System.currentTimeMillis());
+    }
+
     @Override
     public String toString() {
         return "Query{" +
                 "id=" + id +
                 ", currencyType=" + currencyType +
-                ", dateFrom=" + localDateFrom +
-                ", dateTo=" + localDateTo +
+                ", dateFrom=" + dateFrom +
+                ", dateTo=" + dateTo +
+                ", timeNow=" + timeNow +
                 '}';
     }
 }

@@ -3,10 +3,7 @@ package com.pjatk.nbp.controller;
 import com.pjatk.nbp.model.Query;
 import com.pjatk.nbp.service.NbpService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/zloto")
@@ -25,7 +22,7 @@ public class NbpController {
         nbpService.addQuery(queryP);
     }
 
-    @GetMapping("")
+    @PostMapping("")
     ResponseEntity<String> getByDate(@RequestBody Query query){
         nbpService.addQuery(query);
         System.out.println(query);

@@ -4,8 +4,6 @@ import com.pjatk.nbp.model.Query;
 import com.pjatk.nbp.repository.NbpRepository;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
-
 @Service
 public class NbpService {
     private final NbpRepository nbpRepository;
@@ -15,9 +13,7 @@ public class NbpService {
     }
 
     public void addQuery(Query query){
-        System.out.println(query);
-        query.setDateFrom(Date.valueOf(query.getLocalDateFrom()));
-        query.setDateTo(Date.valueOf(query.getLocalDateTo()));
+        query.setDateNow();
         nbpRepository.save(query);
     }
 
