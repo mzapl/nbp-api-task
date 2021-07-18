@@ -14,14 +14,6 @@ public class NbpController {
         this.nbpService = nbpService;
     }
 
-    @GetMapping("/test")
-    void addQueries(){
-        Query queryU = new Query("USD", "2001-09-11", "2001-10-11");
-        Query queryP = new Query("PLN", "2010-04-10", "2010-05-10");
-        nbpService.addQuery(queryU);
-        nbpService.addQuery(queryP);
-    }
-
     @PostMapping("")
     ResponseEntity<String> getByDate(@RequestBody Query query){
         nbpService.addQuery(query);

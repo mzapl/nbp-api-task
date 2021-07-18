@@ -1,6 +1,7 @@
 package com.pjatk.nbp;
 
 import com.pjatk.nbp.config.SpringFoxConfig;
+import com.pjatk.nbp.controller.NbpController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
