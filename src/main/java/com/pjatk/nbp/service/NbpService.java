@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,9 +45,8 @@ public class NbpService {
 
         List<String> strings = jsonObjects.stream().map(elem -> elem.get("cena").toString()).collect(Collectors.toList());
         double avg = strings.stream().mapToDouble(Double::parseDouble).sum() / jsonObjects.size();
-        System.out.println(avg);
 
-        return responseEntity.getBody();
+        return new JSONObject().put("srednia", avg).toString();
     }
 
 
